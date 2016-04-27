@@ -1,48 +1,24 @@
-# ESP WiFiSwitch
-## General info
-This sketch is for a WiFi enabled wall light switch with focus to reliable pushbutton switch.
-In the beginning or (if no WiFi connection) it is running a web server to configure WiFI (and MQTT if desired). The Light will be switched via GPIO2 connected to a Triac to switch a light/LED.
-The operation mode can be web server or MQTT to change the state of the light.
-The push button have to switch to ground.
-## Button functions
-* Normal press less than 1 sec but more than 50ms-> Switch light.
-* Restart press: 3 sec -> Restart the module.
-* Reset press: 20 sec -> Clear the settings in EEPROM
+# ESP Relay Board
 
-## URL adresses
-* While a WiFi config is not set or can't connect:
-   * http://server_ip
-   *-> Gives a WiFi config page 
-  
-* While a WiFi config is set and in Web control mode (iotMode==0):
- * http://server_ip/gpio
-  * Will display the GIPIO state and a switch form for it
-  
- * http://server_ip/gpio?state=0
-  * Will change the GPIO directly and display the above aswell
-  
- * http://server_ip/cleareeprom 
-  * Will reset the WiFi setting and rest to configure mode as AP
-  
-<b>server_ip</b> is the IP address of the ESP8266 module, will be printed to Serial when the module is connected.
+Buy at https://www.tindie.com/products/RelayBoards/miniature-home-automation-board/
 
-## Hardware setup
-Your WiFi switch should be connected like this
+A miniature board(85mm x 35mm x 21mm) for home automation. 
+To power on the device connect the Live and Neutral terminals to the respective wires from the mains. Connect the loads to the ports named L1,L2,L3.
 
-![Schematic](https://raw.githubusercontent.com/biohazardxxx/ESP_WiFiSwitch/master/ElectronicDesignAutomation/Schematic.png)
+Your board should now appear as the wifi network- EspRelayBoard. 
 
-You can reorder the working PCB here: https://oshpark.com/shared_projects/xoEZ3PnV or get it from any where else from the KiCad design files "ElectronicDesignAutomation" folder.
+Detailed wiring instructions at
+http://www.instructables.com/id/Miniature-ESP-Relay-Board-for-Home-Automation/
 
-
-## Usage
-<b>For default usage you can use the pre build firmware.</b>
-
-After fresh flash please restart the module manualy (power Off & On) otherwise software restart will not work and sometimes WiFi connect does not work.
-
-Open the modules page after entering config mode (Press button >20secs if you want to enter again) via http://server_ip there you can setup to be MQTT controled or Web controled.
+To configure enter 192.168.4.1 in your browser, enter your home network name and password.
+Your board should now be accessible at 192.168.1.140. 
+The board also accepts commands like
+http://192.168.1.140/gpio?state=2OFF 
+which turns off switch number 2
 
 ## Credits
 For several snippets used the credit goes to:
+  -https://github.com/biohazardxxx/ESP_WiFiSwitch
  - https://github.com/esp8266
  - https://github.com/chriscook8/esp-arduino-apboot
  - https://github.com/knolleary/pubsubclient
