@@ -1,6 +1,6 @@
 # ESP Relay Board
 
-Buy at https://www.tindie.com/products/RelayBoards/miniature-home-automation-board/
+Buy at https://www.tindie.com/products/RelayBoards/miniature-home-automation-relay-board-esp8266/
 
 A miniature board(85mm x 35mm x 21mm) for home automation. 
 To power on the device connect the Live and Neutral terminals to the respective wires from the mains. Connect the loads to the ports named L1,L2,L3.
